@@ -1,14 +1,17 @@
+import './signup.css'
 function Signup() {
   return (
-    <div>
+    <>
       <div>
-        <input type="text" placeholder="Username" />
-        <br />
-        <input type="password" placeholder="Password" />
-        <br />
+        <div>
+          <input class="mb-5" type="text" placeholder="Username" />
+        </div>
+        <div>
+          <input class="mb-5" type="password" placeholder="Password" />
+        </div>
         <button>Sign Up</button>
       </div>
-    </div>
+    </>
   );
 }
 export default Signup;
