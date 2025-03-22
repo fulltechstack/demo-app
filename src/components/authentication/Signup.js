@@ -1,4 +1,4 @@
-function Login() {
+function Signup() {
   return (
     <div>
       <div>
@@ -6,9 +6,9 @@ function Login() {
         <br />
         <input type="password" placeholder="Password" />
         <br />
-        <button>Login</button>
+        <button>Sign Up</button>
       </div>
     </div>
   );
 }
-export default Login;
+export default Signup;
