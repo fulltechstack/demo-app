@@ -10,6 +10,14 @@ function Login(props) {
         <input type="password" placeholder="Password" />
         <br />
         <button>Login</button>
+        <p>
+          Don't have an account?{" "}
+          <button
+            onClick={props.onSignupClick}
+          >
+            Signup here
+          </button>
+        </p>
       </div>
     </div>
   );
