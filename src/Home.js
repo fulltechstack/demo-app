@@ -4,7 +4,7 @@ import Signup from "./components/authentication/Signup";
 function HomePage() {
   let myCurrentApplication = 'Adeptia Connect';
   let orgCode = 1;
-  if (orgCode == 1) {
+  if (orgCode === 1) {
     myCurrentApplication = 'Adeptia PC'
   }
   return (
