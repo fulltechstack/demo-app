@@ -1,28 +1,9 @@
-import Login from "./components/authentication/Login";
-import Signup from "./components/authentication/Signup";
-
-function HomePage() {
+function App() {
   return (
     <>
-      <div
-        style={{ width: "50%", position: "absolute", left: "0", top: "20px" }}
-      >
-        <Login />
-      </div>
-
-      <div
-        style={{
-          width: "50%",
-          position: "absolute",
-          right: "0",
-          top: "20px",
-          textAlign: "left",
-        }}
-      >
-        <Signup />
-      </div>
+      <p>Heloo</p>
     </>
   );
 }
 
-export default HomePage;
+export default App;
