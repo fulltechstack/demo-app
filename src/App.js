@@ -1,28 +1,16 @@
-import Login from "./components/authentication/Login";
-import Signup from "./components/authentication/Signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Login";
 
-function HomePage() {
+function App() {
   return (
     <>
-      <div
-        style={{ width: "50%", position: "absolute", left: "0", top: "20px" }}
-      >
-        <Login />
-      </div>
-
-      <div
-        style={{
-          width: "50%",
-          position: "absolute",
-          right: "0",
-          top: "20px",
-          textAlign: "left",
-        }}
-      >
-        <Signup />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
 
-export default HomePage;
+export default App;
