@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  let [username, setusername] = useState("vidhi");
-  let [password, setpassword] = useState("12345");
+  let [username, setusername] = useState("");
+  let [password, setpassword] = useState("");
 
   const navigate = useNavigate();
 
   const isValidUser = () => {
     if (username !== "" && password !== "") {
       console.log("worked", username, password);
-      navigate("/Profile");
+      navigate("/profile");
     }
   };
 
