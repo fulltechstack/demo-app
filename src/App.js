@@ -1,17 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Profile from "./Profile"
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Welcome from "./components/Welcome"
+import Login from "./components/Login";
 
 function App() {
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Welcome />,
+        children: [
+          {
+            path: "/login",
+            element: <Login />
+          }
+        ]
+      },
+    ]
+  );
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <RouterProvider router={router} />
   );
 }
 
