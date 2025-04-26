@@ -1,19 +1,22 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Banner from "./Banner";
-
+import CategoryNavbar from "./CategoryNavbar";
 
 function Welcome() {
-    return (
-        <div>
-            <Navbar />
-            <Banner />
-            <div className="p-4">
-                <Outlet />
-            </div>
-        </div>
-    );
-};
+  const currentRoute = useLocation();
+
+  return (
+    <div>
+      <Navbar />
+      <CategoryNavbar />
+      {currentRoute.pathname === "/" ? <Banner /> : <></>}
+      <div className="p-4">
+        <Outlet />
+      </div>
+    </div>
+  );
+}
 
 export default Welcome;
