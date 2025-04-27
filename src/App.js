@@ -2,6 +2,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Welcome from "./components/Welcome";
 import Login from "./components/Login";
 import NotFound from "./components/NotFound";
+import Fashion from "./components/Fashion";
+import Household from "./components/Household";
+import Electronics from "./components/Electronics";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +19,18 @@ function App() {
         {
           path: "*",
           element: <NotFound />,
+        },
+        {
+          path: "/fashion",
+          element: <Fashion />,
+        },
+        {
+          path: "/household",
+          element: <Household />,
+        },
+        {
+          path: "/electronics",
+          element: <Electronics />,
         },
       ],
     },
