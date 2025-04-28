@@ -5,6 +5,7 @@ import NotFound from "./components/NotFound";
 import Fashion from "./components/Fashion";
 import Household from "./components/Household";
 import Electronics from "./components/Electronics";
+import Account from "./components/Account";
 
 function App() {
   const router = createBrowserRouter([
@@ -13,8 +14,14 @@ function App() {
       element: <Welcome />,
       children: [
         {
-          path: "/login",
-          element: <Login />,
+          path: "/account",
+          element: <Account />,
+          children: [
+            {
+              path: "/account/login",
+              element: <Login />,
+            },
+          ],
         },
         {
           path: "*",
