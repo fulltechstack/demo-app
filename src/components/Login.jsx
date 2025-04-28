@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jsonfile from "../service-data/UserCredentials.json";
+import ToastNotification from "./ToastNotification";
 
 function Login() {
   let [username, setUserName] = useState("");
   let [password, setPassword] = useState("");
+  let [notification, setNotification] = useState();
 
   const navigateTo = useNavigate();
 
@@ -17,10 +19,19 @@ function Login() {
 
   const loginUser = (e) => {
     e.preventDefault();
+    console.log("Check login");
+    debugger;
     if (validateLogin()) {
+      setNotification({
+        type: "success",
+        message: "Login Successful",
+      });
       navigateTo("/");
     } else {
-      //display invalid user errors
+      setNotification({
+        type: "error",
+        message: "Login Unsuccessful",
+      });
     }
   };
 
@@ -63,6 +74,7 @@ function Login() {
           </button>
         </form>
       </div>
+      <ToastNotification notification={notification} />
     </div>
   );
 }
