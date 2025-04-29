@@ -3,13 +3,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jsonfile from "../service-data/UserCredentials.json";
 import ToastNotification from "./ToastNotification";
+import authContext from "../context/AuthContext";
+import { useContext } from "react";
 
 function Login() {
   let [username, setUserName] = useState("");
   let [password, setPassword] = useState("");
   let [notification, setNotification] = useState();
 
+  let ctx = useContext(authContext);
   const navigateTo = useNavigate();
+
+  const setFirstName = jsonfile.userdata.find(
+    (user) => user.username === username
+  );
 
   const validateLogin = () => {
     return jsonfile.userdata.find(
@@ -20,14 +27,16 @@ function Login() {
   const loginUser = (e) => {
     e.preventDefault();
     console.log("Check login");
-    debugger;
     if (validateLogin()) {
-      setNotification({
-        type: "success",
-        message: "Login Successful",
+      ctx.setUser({
+        firstname: setFirstName.firstName,
+        isLoggedIn: true,
       });
       navigateTo("/");
     } else {
+      ctx.setUser({
+        isLoggedIn: false,
+      });
       setNotification({
         type: "error",
         message: "Login Unsuccessful",

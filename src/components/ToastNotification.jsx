@@ -4,7 +4,6 @@ import { props, useEffect } from "react";
 
 function ToastNotification(props) {
   const showNotification = () => {
-    debugger;
     if (props.notification) {
       if (props.notification.type === "success") {
         toast.success(props.notification.message);

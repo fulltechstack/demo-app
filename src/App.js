@@ -6,8 +6,11 @@ import Fashion from "./components/Fashion";
 import Household from "./components/Household";
 import Electronics from "./components/Electronics";
 import Account from "./components/Account";
+import authContext from "./context/AuthContext";
+import { useState } from "react";
 
 function App() {
+  let [user, setUser] = useState();
   const router = createBrowserRouter([
     {
       path: "/",
@@ -42,7 +45,11 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <authContext.Provider value={{ user, setUser }}>
+      <RouterProvider router={router} />
+    </authContext.Provider>
+  );
 }
 
 export default App;
